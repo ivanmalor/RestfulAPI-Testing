@@ -7,6 +7,7 @@ Test Setup    Create HTTP Context     ${HOST}
 
 C4 Retrieve collection of posts
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/4
+    [tags]    GET
     
     GET    /posts
     Log Response Body
@@ -14,6 +15,7 @@ C4 Retrieve collection of posts
 
 C11 Retrieve a collection of posts by user's ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/11
+    [tags]    GET
 
     GET    /posts?userId=${user id}
     Log Response Body
@@ -21,6 +23,7 @@ C11 Retrieve a collection of posts by user's ID
 
 C12 Retrieve a post by ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/12
+    [tags]    GET
 
     GET    /posts/1
     Log Response Body
@@ -28,6 +31,7 @@ C12 Retrieve a post by ID
 
 C13 Edit an exisiting post by ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/13
+    [tags]    PUT
 
     ${post}=    Create Dictionary    userId=${user id}  title=${title}    body=${body}
     ${json post}=    Stringify JSON      ${post}
@@ -39,6 +43,7 @@ C13 Edit an exisiting post by ID
     
 C14 Delete a post by ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/14
+    [tags]    DELETE
 
     DELETE    /posts/1
     Log Response Body
@@ -46,6 +51,7 @@ C14 Delete a post by ID
 
 C16 Create a new post from an existing user
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/16
+    [tags]    POST
     
     ${post}=    Create Dictionary    userId=${user id}  title=${title}    body=${body}
     ${json post}=    Stringify JSON      ${post}
@@ -57,6 +63,7 @@ C16 Create a new post from an existing user
 
 C18 Search for an non existing post
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/18
+    [tags]    GET
 
     Next Request May Not Succeed
     GET    /posts/0
