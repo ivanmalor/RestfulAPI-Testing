@@ -1,6 +1,6 @@
 *** Setting ***
 Resource    ./post_resources.robot
-Test Setup    Create HTTP Context     ${HOST}
+Test Setup  Setup HTTP Client
 
 
 *** Test Cases ***
