@@ -3,10 +3,7 @@
 Resource    ../_resources.robot
 
 
-
-
 *** Variables ***
-${HOST}    jsonplaceholder.typicode.com
 
 ${user id}     1
 ${title}       This is a simple title

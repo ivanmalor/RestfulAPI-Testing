@@ -66,12 +66,9 @@ C16 Create a new post from an existing user
 C18 Search for an non existing post
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/18
     [tags]    GET
-
-    Next Request May Not Succeed
-    GET    /posts/0
-    ${response}=    Get Response Status
-    Should Be Equal As Strings    404 Not Found    ${response}
     
+    Run Keyword And Ignore Error    GET    /posts/0
+    Response Status Code Should Equal    404
     
 
 
