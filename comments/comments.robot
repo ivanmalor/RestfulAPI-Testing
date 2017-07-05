@@ -30,13 +30,13 @@ C17 Add a comment of an existing post
 
 Initialise Test
     Setup HTTP Client
-    Add post to http request body
+    Add comment to http request body
 
 Add comment to http request body
     ${comment}=         Create Dictionary    name=${name}
     ...                                      email=${email}
     ...                                      body=${body}
 
-    ${json post}=    Stringify JSON       ${comment}
+    ${json comment}=    Stringify JSON       ${comment}
     Set Request Body      ${json comment}
 
