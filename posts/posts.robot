@@ -1,6 +1,6 @@
 *** Setting ***
-Resource    ./post_resources.robot
-Test Setup    Create HTTP Context     ${HOST}
+Resource      ./post_resources.robot
+Test Setup    Initialise Test
 
 
 *** Test Cases ***
@@ -9,9 +9,7 @@ C4 Retrieve collection of posts
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/4
     [tags]    GET
     
-    GET    /posts
-    Log Response Body
-    Response Status Code Should Equal    200
+    Test http request option    get    /posts    200
 
 C11 Retrieve a collection of posts by user's ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/11
@@ -69,6 +67,18 @@ C18 Search for an non existing post
     GET    /posts/0
     ${response}=    Get Response Status
     Should Be Equal As Strings    404 Not Found    ${response}
+
+*** Keywords ***
+Initialise Test
+    Setup HTTP Client
+    Add post to http request body
+
+Add post to http request body
+    ${post}=         Create Dictionary    userId=${user id}
+    ...                                   title=${title}
+    ...                                   body=${body}
+    ${json post}=    Stringify JSON       ${post}
+    Set Request Body      ${json post}
     
     
 
