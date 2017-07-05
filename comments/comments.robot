@@ -32,11 +32,11 @@ Initialise Test
     Setup HTTP Client
     Add post to http request body
 
-Add post to http request body
+Add comment to http request body
     ${comment}=         Create Dictionary    name=${name}
     ...                                      email=${email}
     ...                                      body=${body}
 
     ${json post}=    Stringify JSON       ${comment}
-    Set Request Body      ${json post}
+    Set Request Body      ${json comment}
 
