@@ -1,4 +1,8 @@
 *** Setting ***
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22f27865f74c589a74cbb3edcaf080339c94a742
 Resource    ../_resources.robot
 
 
@@ -12,4 +16,7 @@ ${body}        This is the body of a simple post. I know, it's boring.
 
 *** Keywords ***
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22f27865f74c589a74cbb3edcaf080339c94a742
