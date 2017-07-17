@@ -1,6 +1,5 @@
 *** Setting ***
-Resource     ./comments_resources.robot
-Suite Setup   Initialise Test
+Resource     ../_resources.robot
 
 *** Test Cases ***
 
@@ -9,8 +8,8 @@ C5 Retrieve a collection of comments
     [tags]    GET
 
     Test http request option    get    /comments    200
-    
-    
+
+
 
 C15 Retrieve a collection of comments by Post ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/15
@@ -24,7 +23,7 @@ C17 Add a comment of an existing post
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/17
     [tags]    POST
 
-    Test http request option    post    /comments?postId=${post id}    201
+    Test http request option    post    /comments?postId=1    201
 
 *** Keywords ***
 
@@ -39,4 +38,3 @@ Add comment to http request body
 
     ${json comment}=    Stringify JSON       ${comment}
     Set Request Body      ${json comment}
-

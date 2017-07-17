@@ -1,6 +1,5 @@
 *** Setting ***
-Resource      ./post_resources.robot
-Test Setup    Initialise Test
+Resource      ../_resources.robot
 
 
 *** Test Cases ***
@@ -8,7 +7,7 @@ Test Setup    Initialise Test
 C4 Retrieve collection of posts
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/4
     [tags]    GET
-    
+
     Test http request option    get    /posts    200
 
 C11 Retrieve a collection of posts by user's ID
@@ -28,7 +27,7 @@ C13 Edit an exisiting post by ID
     [tags]    PUT
 
     Test http request option    put    /posts/1    200
-    
+
 C14 Delete a post by ID
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/14
     [tags]    DELETE
@@ -38,7 +37,7 @@ C14 Delete a post by ID
 C16 Create a new post from an existing user
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/16
     [tags]    POST
-    
+
     Test http request option    post    /posts    201
 
 C18 Search for an non existing post
@@ -47,19 +46,3 @@ C18 Search for an non existing post
 
     Next Request May Not Succeed
     Test http request option    get    /posts/0    404
-
-*** Keywords ***
-Initialise Test
-    Setup HTTP Client
-    Add post to http request body
-
-Add post to http request body
-    ${post}=         Create Dictionary    userId=${user id}
-    ...                                   title=${title}
-    ...                                   body=${body}
-    ${json post}=    Stringify JSON       ${post}
-    Set Request Body      ${json post}
-    
-    
-
-
