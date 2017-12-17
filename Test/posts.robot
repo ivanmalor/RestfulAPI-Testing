@@ -38,7 +38,7 @@ C16 Create a new post from an existing user
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/16
     [tags]    POST
 
-    Test http request option    post    /posts    201
+    Test http request option    post    /posts    201   &{valid_post}
 
 C18 Search for an non existing post
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/18
