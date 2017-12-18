@@ -1,6 +1,6 @@
 *** Setting ***
-Resource     ./users_resources.robot
-Suite Setup   Initialise Test
+Resource     ../users_resources.robot
+Suite Setup   Setup HTTP Client
 
 *** Test Cases ***
 
@@ -26,13 +26,13 @@ C7 Retrieve exisiting user's information
 C8 Edit user's information
     [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/8
     [tags]    PUT
-    
+
     Test http request option    put    /users/1    200
 
-C9 Delete user information by ID  
+C9 Delete user information by ID
    [Documentation]   https://jobsity.testrail.net/index.php?/cases/view/9
    [tags]    DELETE
-    
+
     Test http request option    delete    /users/1    200
 
 C19 Search for a non exisiting user
@@ -40,7 +40,7 @@ C19 Search for a non exisiting user
     [tags]    GET
 
     Next Request May Not Succeed
-    Test http request option    get    /users/0    404  
+    Test http request option    get    /users/0    404
 
 *** Keywords ***
 Initialise Test
@@ -63,9 +63,3 @@ Create address
    ...                               city=${city}
    ...                               zipcode=${zipcode}
    [return]  $address
-
-
-
-
-
-   
