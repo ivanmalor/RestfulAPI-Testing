@@ -26,14 +26,12 @@ Setup HTTP Client
     Create HTTP Context  ${HOST}
     Set Request Header    Content-Type  application/json
 
-Test http request option
-    [Arguments]    ${method}    ${resource}    ${status}    ${body}=${EMPTY}
-    Log   ${body}
-    Add message body     ${body}
-    Run Keyword If      '${method}'=='get'       GET    ${resource}
-    Run Keyword If      '${method}'=='delete'    DELETE    ${resource}
-    Run Keyword If      '${method}'=='post'      POST    ${resource}
-    Run Keyword If      '${method}'=='put'       PUT    ${resource}
+REST Call
+    [Arguments]    ${method}    ${resource}   ${status}   ${payload}=${EMPTY}
+    Log Many    ${method}   ${resource}   ${payload}
+    Set Request Body    ${payload}
+    Run Keyword And Continue On Failure      ${method}    ${resource}
+    Log Response Status
     Log Response Body
     Response Status Code Should Equal    ${status}
 
